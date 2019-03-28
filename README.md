@@ -3,11 +3,11 @@ JohnFordTV Scripts Repositories
 
 ################################################
 
-` . DONATION
+DONATION
  GCASH: 09367592382
  PAYMAYA: 09367592382
 
-` . CONTACT
+CONTACT
  GLOBE PREPAID: 09367592382
  FACEBOOK: https://www.facebook.com/johndesu090
  YAHOO! MAIL: exodia090@gmail.com
