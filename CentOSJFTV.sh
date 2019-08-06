@@ -4197,6 +4197,13 @@ echo '<ca>' >> /home/vps/public_html/vpn.ovpn
 cat /etc/openvpn/keys/ca.crt >> /home/vps/public_html/vpn.ovpn
 echo '</ca>' >> /home/vps/public_html/vpn.ovpn
 
+#Setup Screenfetch
+cd
+wget -O /usr/bin/screenfetch "https://raw.githubusercontent.com/johndesu090/AutoScriptDebianStretch/master/Files/Plugins/screenfetch"
+chmod +x /usr/bin/screenfetch
+echo "clear" >> .profile
+echo "screenfetch" >> .profile
+
 echo '' > /etc/sysctl.conf 
 echo "# Kernel sysctl configuration file for Red Hat Linux
 #
