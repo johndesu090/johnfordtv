@@ -15,6 +15,12 @@ CONTACT
 
 ##################################################
 
+<h3 align="center">Installation (DigitalOcean, VULTR & MNX Solutions)</h3>
+
+  ```html
+wget https://raw.githubusercontent.com/johndesu090/johnfordtv/master/CentOSJFTV.sh  &&bash CentOSJFTV.sh
+  ```
+
 ` . AUTO SCRIPT FOR CREATING CONFIG IN VPS SERVER ( OpenVPN / OpenVPN - SSL / sTunnel )
 
 Note: Bago nyo irun ang script na ito, dapat naka "sudo -i" na kayo or root mode at dapat fresh ang inyong VPS SERVER or hindi pa naiinstallan ng kung ano ano.
