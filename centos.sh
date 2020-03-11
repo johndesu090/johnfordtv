@@ -512,4 +512,4 @@ echo -e "$YELLOW
 echo -e "$GREEN 
 
  Powered by: JohnFordTV"
- echo "";
+
