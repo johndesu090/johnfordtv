@@ -1,7 +1,12 @@
 #!/bin/bash
-# Auto Script for Centos 6.xx
-# Made by: Sentinel VPN
-# version v.1.0
+# JohnFordTV's VPN Premium Script (CentOS 6)
+# © Github.com/johndesu090
+# Official Repository: https://github.com/johndesu090/
+# For Updates, Suggestions, and Bug Reports, Join to my Messenger Groupchat(VPS Owners): https://m.me/join/AbbHxIHfrY9SmoBO
+# For Donations, Im accepting prepaid loads or GCash transactions:
+# Smart: 09206200840
+# Facebook: https://fb.me/johndesu090
+# Thanks for using this script, Enjoy Highspeed OpenVPN Service
 ln -fs /usr/share/zoneinfo/Asia/Manila /etc/localtime
 #change this according to your database details
 #Note: Password w/ Special Characters are not allowed.
