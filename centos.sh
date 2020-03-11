@@ -17,7 +17,7 @@ dbname='phsntnlvpn1';
 dbport='3306';
 
 
-<ca>
+#<ca> certs
 cacert='-----BEGIN CERTIFICATE-----
 MIIFDDCCA/SgAwIBAgIJAIxbDcvh6vPEMA0GCSqGSIb3DQEBCwUAMIG0MQswCQYD
 VQQGEwJQSDEPMA0GA1UECBMGVGFybGFjMRMwEQYDVQQHEwpDb25jZXBjaW9uMRMw
@@ -485,7 +485,7 @@ chkconfig httpd on &> /dev/null
 service httpd restart &> /dev/null
 service squid restart 
 service openvpn restart
-rm openvpn.sh
+rm centos.sh
 clear
 echo ''
 echo ''
@@ -512,4 +512,4 @@ echo -e "$YELLOW
 echo -e "$GREEN 
 
  Powered by: JohnFordTV"
-
+sleep 3s
