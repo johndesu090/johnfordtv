@@ -1,4 +1,4 @@
-**DebianVPN’s Privacy Policy
+<h1 DebianVPN’s Privacy Policy</h1>
 The Information We Collect
 
 DebianVPN does not ask for any personally identifiable information to browse our site or use our free features. To subscribe to our services, an account must be registered. We do not use this information to track any of your web activities while logged into our DebianVPN services. We only collect the necessary and limited information for our customer information file in order to provide and maintain billing for our services.
