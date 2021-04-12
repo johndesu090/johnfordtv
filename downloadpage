@@ -83,6 +83,16 @@
 													<i class="fa fa-download"></i> Download
 												</a>
 											</li>
+											<li class="list-group-item justify-content-between align-items-center" style="margin-bottom:1em;">
+												<p> ALL CONFIGS 
+													<span class="badge light-blue darken-4">All OVPN Configurations</span>
+													<br />
+													<small> ALL PROTOCOLS </small>
+												</p>
+												<a class="btn btn-outline-success waves-effect btn-sm" href="http://IP-ADDRESS:NGINXPORT/configs.zip" style="float:right;">
+													<i class="fa fa-download"></i> Download
+												</a>
+											</li>
 										</ul>
 									</div>
 								</div>
