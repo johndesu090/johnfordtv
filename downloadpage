@@ -24,6 +24,16 @@
 										<br />
 										<ul class="list-group">
 											<li class="list-group-item justify-content-between align-items-center" style="margin-bottom:1em;">
+												<p> ALL CONFIGS 
+													<span class="badge light-blue darken-4">All OVPN Configurations</span>
+													<br />
+													<small> ALL PROTOCOLS </small>
+												</p>
+												<a class="btn btn-outline-success waves-effect btn-sm" href="http://IP-ADDRESS:NGINXPORT/configs.zip" style="float:right;">
+													<i class="fa fa-download"></i> Download
+												</a>
+											</li>
+											<li class="list-group-item justify-content-between align-items-center" style="margin-bottom:1em;">
 												<p>TCP CONFIG
 													<span class="badge light-blue darken-4">Default</span>
 													<br />
@@ -44,52 +54,12 @@
 												</a>
 											</li>
 											<li class="list-group-item justify-content-between align-items-center" style="margin-bottom:1em;">
-												<p>TCP CONFIG 
-													<span class="badge light-blue darken-4">Elliptic Curve</span>
-													<br />
-													<small> Transmission Control Protocol - Elliptic Curve</small>
-												</p>
-												<a class="btn btn-outline-success waves-effect btn-sm" href="http://IP-ADDRESS:NGINXPORT/tcp-ec" style="float:right;">
-													<i class="fa fa-download"></i> Download
-												</a>
-											</li>
-											<li class="list-group-item justify-content-between align-items-center" style="margin-bottom:1em;">
-												<p>TCP CONFIG 
-													<span class="badge light-blue darken-4">Elliptic Curve OpenHTTP Puncher</span>
-													<br />
-													<small> Transmission Control Protocol - Elliptic Curve OpenHTTP Puncher</small>
-												</p>
-												<a class="btn btn-outline-success waves-effect btn-sm" href="http://IP-ADDRESS:NGINXPORT/tcp-ec-ohp.ovpn" style="float:right;">
-													<i class="fa fa-download"></i> Download
-												</a>
-											</li>
-											<li class="list-group-item justify-content-between align-items-center" style="margin-bottom:1em;">
 												<p>UDP CONFIG 
 													<span class="badge light-blue darken-4">Default</span>
 													<br />
 													<small> User Datagram Protocol - Default</small>
 												</p>
 												<a class="btn btn-outline-success waves-effect btn-sm" href="http://IP-ADDRESS:NGINXPORT/udp-default.ovpn" style="float:right;">
-													<i class="fa fa-download"></i> Download
-												</a>
-											</li>
-											<li class="list-group-item justify-content-between align-items-center" style="margin-bottom:1em;">
-												<p> UDP CONFIG 
-													<span class="badge light-blue darken-4">Elliptic Curve</span>
-													<br />
-													<small> User Datagram Protocol - Elliptic Curve</small>
-												</p>
-												<a class="btn btn-outline-success waves-effect btn-sm" href="http://IP-ADDRESS:NGINXPORT/udp-ec.ovpn" style="float:right;">
-													<i class="fa fa-download"></i> Download
-												</a>
-											</li>
-											<li class="list-group-item justify-content-between align-items-center" style="margin-bottom:1em;">
-												<p> ALL CONFIGS 
-													<span class="badge light-blue darken-4">All OVPN Configurations</span>
-													<br />
-													<small> ALL PROTOCOLS </small>
-												</p>
-												<a class="btn btn-outline-success waves-effect btn-sm" href="http://IP-ADDRESS:NGINXPORT/configs.zip" style="float:right;">
 													<i class="fa fa-download"></i> Download
 												</a>
 											</li>
