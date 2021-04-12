@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>OVPN Config Download</title>
-		<meta name="description" content="BonvScripts Server" />
+		<meta name="description" content="JohnFordTV OpenVPN Download Page" />
 		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 		<meta name="theme-color" content="#000000" />
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
@@ -29,7 +29,7 @@
 													<br />
 													<small> Transmission Control Protocol - Default</small>
 												</p>
-												<a class="btn btn-outline-success waves-effect btn-sm" href="http://IP-ADDRESS:85/tcp-default.ovpn" style="float:right;">
+												<a class="btn btn-outline-success waves-effect btn-sm" href="http://IP-ADDRESS:NGINXPORT/tcp-default.ovpn" style="float:right;">
 													<i class="fa fa-download"></i> Download
 												</a>
 											</li>
@@ -39,7 +39,7 @@
 													<br />
 													<small> Transmission Control Protocol - OpenHTTP Puncher</small>
 												</p>
-												<a class="btn btn-outline-success waves-effect btn-sm" href="http://IP-ADDRESS:85/tcp-ohp.ovpn" style="float:right;">
+												<a class="btn btn-outline-success waves-effect btn-sm" href="http://IP-ADDRESS:NGINXPORT/tcp-ohp.ovpn" style="float:right;">
 													<i class="fa fa-download"></i> Download
 												</a>
 											</li>
@@ -49,7 +49,7 @@
 													<br />
 													<small> Transmission Control Protocol - Elliptic Curve</small>
 												</p>
-												<a class="btn btn-outline-success waves-effect btn-sm" href="http://IP-ADDRESS:85/tcp-ec" style="float:right;">
+												<a class="btn btn-outline-success waves-effect btn-sm" href="http://IP-ADDRESS:NGINXPORT/tcp-ec" style="float:right;">
 													<i class="fa fa-download"></i> Download
 												</a>
 											</li>
@@ -59,7 +59,7 @@
 													<br />
 													<small> Transmission Control Protocol - Elliptic Curve OpenHTTP Puncher</small>
 												</p>
-												<a class="btn btn-outline-success waves-effect btn-sm" href="http://IP-ADDRESS:85/tcp-ec-ohp.ovpn" style="float:right;">
+												<a class="btn btn-outline-success waves-effect btn-sm" href="http://IP-ADDRESS:NGINXPORT/tcp-ec-ohp.ovpn" style="float:right;">
 													<i class="fa fa-download"></i> Download
 												</a>
 											</li>
@@ -69,7 +69,7 @@
 													<br />
 													<small> User Datagram Protocol - Default</small>
 												</p>
-												<a class="btn btn-outline-success waves-effect btn-sm" href="http://IP-ADDRESS:85/udp-default.ovpn" style="float:right;">
+												<a class="btn btn-outline-success waves-effect btn-sm" href="http://IP-ADDRESS:NGINXPORT/udp-default.ovpn" style="float:right;">
 													<i class="fa fa-download"></i> Download
 												</a>
 											</li>
@@ -79,7 +79,7 @@
 													<br />
 													<small> User Datagram Protocol - Elliptic Curve</small>
 												</p>
-												<a class="btn btn-outline-success waves-effect btn-sm" href="http://IP-ADDRESS:85/udp-ec.ovpn" style="float:right;">
+												<a class="btn btn-outline-success waves-effect btn-sm" href="http://IP-ADDRESS:NGINXPORT/udp-ec.ovpn" style="float:right;">
 													<i class="fa fa-download"></i> Download
 												</a>
 											</li>
