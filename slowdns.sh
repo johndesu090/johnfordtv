@@ -49,7 +49,7 @@ echo -e "${RED}$banner${SCOLOR}"
     echo -e "$ns\n$chave" > $HOME/credenciais
 } || {
     perg=$(echo "${SCOLOR}[s/n]: ")
-    echo -e "\n${YELLOW}SCRIPT IS ALREADY CONFIGURED WITH A\nSERVER IS READY FOR CONNECTION"
+    echo -e "\n${YELLOW}SCRIPT IS ALREADY CONFIGURED WITH SERVER IS READY FOR CONNECTION"
     read -p "$(echo -e "${GREEN}WANT TO CONTINUE WITH THE SAME?${SCOLOR} [s/n]: ")" -e -i s opc
     [[ "$opc" != @(s|sim|S|SIM) ]] && {
         rm $HOME/credenciais dns > /dev/null 2>&1
