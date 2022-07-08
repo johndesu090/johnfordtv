@@ -57,6 +57,8 @@ RewriteCond %{HTTP_REFERER} !^https://www\.gamefights\.live/ [NC]
 RewriteCond %{HTTP_REFERER} !^https://gamefights\.live/ [NC]
 RewriteCond %{HTTP_REFERER} !^https://www\.hangtime-in\.com/ [NC]
 RewriteCond %{HTTP_REFERER} !^https://hangtime-in\.com/ [NC]
+RewriteCond %{HTTP_REFERER} !^https://www\.ulutanlive\.net/ [NC]
+RewriteCond %{HTTP_REFERER} !^https://ulutanlive\.net/ [NC]
 RewriteRule ^ - [R=403,L]
 
 ErrorDocument 403 https://gamebits.live/403.html
