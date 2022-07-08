@@ -53,6 +53,8 @@ RewriteCond %{HTTP_REFERER} !^https://www\.cambopit2027\.live/ [NC]
 RewriteCond %{HTTP_REFERER} !^https://cambopit2027\.live/ [NC]
 RewriteCond %{HTTP_REFERER} !^https://www\.angatan\.live/ [NC]
 RewriteCond %{HTTP_REFERER} !^https://angatan\.live/ [NC]
+RewriteCond %{HTTP_REFERER} !^https://www\.gamefights\.live/ [NC]
+RewriteCond %{HTTP_REFERER} !^https://gamefights\.live/ [NC]
 RewriteRule ^ - [R=403,L]
 
 ErrorDocument 403 https://gamebits.live/403.html
