@@ -32,7 +32,7 @@ function InstAsk(){
  echo "You can leave the default option and just hit enter if you agree with the option"
  echo ""
  echo "You need to have a domain pointed in your server IP for before install"
- read -p " Domain: " -e -i sample.domain.com ydomain
+ read -p " Domain: " -e -i domain.com ydomain
  echo ""
  echo "Okay, that's all I need. We are ready to setup your server now"
  read -n1 -r -p "Press any key to continue..."
@@ -59,10 +59,10 @@ function InstUpdates(){
 function InstCreateDir(){
  
  # Making some important machine directories
- mkdir -p /var/www/$ydomain/web/cdnlive-33554180976
+ mkdir -p /var/www/html/web/cdnlive-33554180976
  mkdir -p /var/livestream/hls /var/livestream/dash /var/livestream/recordings /var/livestream/keys
- ln -s /var/livestream/hls /var/www/$ydomain/web/hls
- ln -s /var/livestream/dash /var/www/$ydomain/web/dash
+ ln -s /var/livestream/hls /var/www/html/web/hls
+ ln -s /var/livestream/dash /var/www/html/web/dash
  
  # Grant permission to WWW
  chown -R www-data:www-data /var/livestream /var/www/$ydomain
@@ -77,7 +77,7 @@ function InstRset(){
  
  # Copy stat to webroot dir
  cp /usr/src/nginx-rtmp-module/stat.xsl /var/www/html/stat.xsl
- cp /usr/src/nginx-rtmp-module/stat.xsl /var/www/$ydomain/web/stat.xsl
+ cp /usr/src/nginx-rtmp-module/stat.xsl /var/www/html/web/stat.xsl
  cd
  
  # Create crossdomain config
@@ -90,8 +90,8 @@ function InstRset(){
 EOF
 
  # Copy crossdomain xml and default nginx page to webroot
- cp /var/www/html/crossdomain.xml /var/www/$ydomain/web/crossdomain.xml
- cp /var/www/html/index.nginx-debian.html /var/www/$ydomain/web/index.html
+ cp /var/www/html/crossdomain.xml /var/www/html/web/crossdomain.xml
+ cp /var/www/html/index.nginx-debian.html /var/www/html/web/index.html
 
 }
 
@@ -130,10 +130,10 @@ function InstActiveScript(){
 sudo killall ffmpeg
 
 # Go into live DIR
-cd /var/www/$ydomain/web/cdnlive-33554180976
+cd /var/www/html/web/cdnlive-33554180976
 
 # Remove playlist cache
-rm -rf /var/www/$ydomain/web/cdnlive-33554180976/playlist*
+rm -rf /var/www/html/web/cdnlive-33554180976/playlist*
 
 # Start encoding
 ffmpeg -reconnect 1 -reconnect_at_eof 1 -reconnect_streamed 1 -reconnect_delay_max 2 -nostdin -hide_banner -nostats -loglevel panic -headers "Referer: https://goperya.net/" -i "https://d1892klpony6i.cloudfront.net/livecf/marvelous/playlist.m3u8" -c copy playlist.m3u8 &
@@ -148,9 +148,7 @@ EOF
  chmod +x active.sh
 
  # For cron commands, visit https://crontab.guru
- cat << EOF > /etc/cron.d/tscleaner
-* * * * * /usr/bin/find /var/www/$ydomain/web/cdnlive-33554180976 -name "*.ts" -type f -mmin +2 -exec rm -f {} \;
-EOF
+ wget -O /etc/cron.d/tscron https://raw.githubusercontent.com/johndesu090/johnfordtv/master/tscron 
  
  # Rebooting cron service
  systemctl restart cron
@@ -232,4 +230,4 @@ echo "Installation Log --> /root/log-install.txt" | tee -a log-install.txt
 echo "=======================================================" | tee -a log-install.txt
 cd ~/
 
-rm -f videosetup.sh
+rm -f vset.sh
