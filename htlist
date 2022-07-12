@@ -57,6 +57,12 @@ RewriteCond %{HTTP_REFERER} !^https://www\.cariojan\.live/ [NC]
 RewriteCond %{HTTP_REFERER} !^https://cariojan\.live/ [NC]
 RewriteCond %{HTTP_REFERER} !^https://www\.cambopit2027\.live/ [NC]
 RewriteCond %{HTTP_REFERER} !^https://cambopit2027\.live/ [NC]
+RewriteCond %{HTTP_REFERER} !^https://www\.zcz898\.live/ [NC]
+RewriteCond %{HTTP_REFERER} !^https://zcz898\.live/ [NC]
+RewriteCond %{HTTP_REFERER} !^https://www\.bett3636\.live/ [NC]
+RewriteCond %{HTTP_REFERER} !^https://bett3636\.live/ [NC]
+RewriteCond %{HTTP_REFERER} !^https://www\.sagupaan420\.com/ [NC]
+RewriteCond %{HTTP_REFERER} !^https://sagupaan420\.com/ [NC]
 RewriteRule ^ - [R=403,L]
 
 ErrorDocument 403 https://gamebits.live/403.html
