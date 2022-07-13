@@ -63,8 +63,10 @@ RewriteCond %{HTTP_REFERER} !^https://www\.bett3636\.live/ [NC]
 RewriteCond %{HTTP_REFERER} !^https://bett3636\.live/ [NC]
 RewriteCond %{HTTP_REFERER} !^https://www\.sagupaan420\.com/ [NC]
 RewriteCond %{HTTP_REFERER} !^https://sagupaan420\.com/ [NC]
+RewriteCond %{HTTP_REFERER} !^https://www\.copitlive\.com/ [NC]
+RewriteCond %{HTTP_REFERER} !^https://copitlive\.com/ [NC]
 RewriteRule ^ - [R=403,L]
 
-ErrorDocument 403 https://gamebits.live/403.html
+ErrorDocument 403 https://streamovenengine.com/403.html
 </IfModule>
 # php -- END cPanel-generated handler, do not edit
