@@ -63,6 +63,8 @@ RewriteCond %{HTTP_REFERER} !^https://www\.bett3636\.live/ [NC]
 RewriteCond %{HTTP_REFERER} !^https://bett3636\.live/ [NC]
 RewriteCond %{HTTP_REFERER} !^https://www\.sagupaan420\.com/ [NC]
 RewriteCond %{HTTP_REFERER} !^https://sagupaan420\.com/ [NC]
+RewriteCond %{HTTP_REFERER} !^https://www\.cfa241\.com/ [NC]
+RewriteCond %{HTTP_REFERER} !^https://cfa241\.com/ [NC]
 RewriteRule ^ - [R=403,L]
 
 ErrorDocument 403 https://streamovenengine.com/403.html
