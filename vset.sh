@@ -146,9 +146,25 @@ EOF
 
  # Make active.sh executable
  chmod +x active.sh
+ 
+ # Create Checker script
+ cat <<'cheker' > /root/checker.sh
+#!/bin/bash
+if ps aux | grep -i '[f]fmpeg' ; then
+  echo "running"
+else
+  echo "not running! restarting encoder..."
+  /bin/bash /root/active.sh
+fi
+
+cheker
+
+ # Make checker script executable
+ chmod +x /root/checker.sh
 
  # For cron commands, visit https://crontab.guru
  wget -O /etc/cron.d/tscron https://raw.githubusercontent.com/johndesu090/johnfordtv/master/tscron 
+ echo -e "* * * * * root /bin/bash /root/checker.sh" > /etc/cron.d/check_script
  
  # Rebooting cron service
  systemctl restart cron
