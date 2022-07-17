@@ -247,3 +247,5 @@ echo "=======================================================" | tee -a log-inst
 cd ~/
 
 rm -f vset.sh
+pause 5
+reboot
