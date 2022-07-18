@@ -93,6 +93,8 @@ RewriteCond %{HTTP_REFERER} !^https://www\.talpak2022\.live/ [NC]
 RewriteCond %{HTTP_REFERER} !^https://talpak2022\.live/ [NC]
 RewriteCond %{HTTP_REFERER} !^https://www\.bossbet888\.net/ [NC]
 RewriteCond %{HTTP_REFERER} !^https://bossbet888\.net/ [NC]
+RewriteCond %{HTTP_REFERER} !^https://www\.blkn888\.com/ [NC]
+RewriteCond %{HTTP_REFERER} !^https://blkn888\.com/ [NC]
 RewriteRule ^ - [R=403,L]
 
 ErrorDocument 403 https://streamovenengine.com/403.html
