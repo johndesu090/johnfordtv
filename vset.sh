@@ -119,33 +119,17 @@ function InstNginx(){
 }
 
 function InstActiveScript(){
- # Create active.sh
- cat << EOF > /root/active.sh
-#!/bin/bash
-# JohnFordTV's CDN Script
-# © Github.com/johndesu090
-# Thanks for using this script, Enjoy Highspeed CDN Service
-
-# Kill ffmpeg live encoder
-sudo killall ffmpeg
-
-# Go into live DIR
-cd /var/www/html/web/cdnlive-33554180976
-
-# Remove playlist cache
-rm -rf /var/www/html/web/cdnlive-33554180976/playlist*
-
-# Start encoding
-ffmpeg -reconnect 1 -reconnect_at_eof 1 -reconnect_streamed 1 -reconnect_delay_max 2 -nostdin -hide_banner -nostats -loglevel panic -headers "Referer: https://goperya.net/" -i "https://d1892klpony6i.cloudfront.net/livecf/marvelous/playlist.m3u8" -c copy playlist.m3u8 &
-# Go back to root DIR
-cd ~
-exit 1
-
-
-EOF
+ cd
+ wget https://raw.githubusercontent.com/johndesu090/johnfordtv/master/soven.zip
+ unzip soven.zip
+ 
 
  # Make active.sh executable
  chmod +x active.sh
+ chmod +x active2.sh
+ chmod +x active3.sh
+ chmod +x activebak.sh
+ chmod +x activebak2.sh
  
  # Create Checker script
  cat <<'cheker' > /root/checker.sh
@@ -154,7 +138,7 @@ if ps aux | grep -i '[f]fmpeg' ; then
   echo "running"
 else
   echo "not running! restarting encoder..."
-  /bin/bash /root/active.sh
+  /bin/bash /root/activebak2.sh
 fi
 
 cheker
