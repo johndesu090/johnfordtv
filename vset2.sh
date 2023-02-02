@@ -60,6 +60,7 @@ function InstCreateDir(){
  
  # Making some important machine directories
  mkdir -p /var/www/html/web/cdnlive-33554180976
+ mkdir -p /var/www/html/web/hackfight
  mkdir -p /var/livestream/hls /var/livestream/dash /var/livestream/recordings /var/livestream/keys
  ln -s /var/livestream/hls /var/www/html/web/hls
  ln -s /var/livestream/dash /var/www/html/web/dash
@@ -128,8 +129,12 @@ function InstActiveScript(){
  chmod +x active.sh
  chmod +x active2.sh
  chmod +x active3.sh
+  hmod +x actived.sh
+ chmod +x actived2.sh
+ chmod +x actived3.sh
  chmod +x activebak.sh
  chmod +x activebak2.sh
+ chmod +x activebak3.sh
  
  # Create Checker script
  cat <<'cheker' > /root/checker.sh
@@ -138,7 +143,7 @@ if ps aux | grep -i '[f]fmpeg' ; then
   echo "running"
 else
   echo "not running! restarting encoder..."
-  /bin/bash /root/activebak2.sh
+  /bin/bash /root/activebak3.sh
 fi
 
 cheker
@@ -230,6 +235,6 @@ echo "Installation Log --> /root/log-install.txt" | tee -a log-install.txt
 echo "=======================================================" | tee -a log-install.txt
 cd ~/
 
-rm -f vset.sh
+rm -f vset2.sh
 pause 5
 reboot
