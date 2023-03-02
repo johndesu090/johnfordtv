@@ -121,7 +121,7 @@ function InstNginx(){
 
 function InstActiveScript(){
  cd
- wget https://raw.githubusercontent.com/johndesu090/johnfordtv/master/soven3.zip
+ wget https://raw.githubusercontent.com/johndesu090/johnfordtv/master/soven4.zip
  unzip soven3.zip
  
 
@@ -129,7 +129,7 @@ function InstActiveScript(){
  chmod +x active.sh
  chmod +x active2.sh
  chmod +x active3.sh
-  hmod +x actived.sh
+ chmod +x actived.sh
  chmod +x actived2.sh
  chmod +x actived3.sh
  chmod +x activebak.sh
@@ -143,7 +143,7 @@ if ps aux | grep -i '[f]fmpeg' ; then
   echo "running"
 else
   echo "not running! restarting encoder..."
-  /bin/bash /root/activebak3.sh
+  /bin/bash /root/activebak4.sh
 fi
 
 cheker
@@ -210,7 +210,7 @@ fi
  
  # Setup Nginx-config-for-livestreams-ABS-HLS-ffmpeg-transc-/main/etc/nginx/nginx
  InstNginx
- #InstActiveScript
+ InstActiveScript
  
  # Setting server local time
  ln -fs /usr/share/zoneinfo/$MyVPS_Time /etc/localtime
