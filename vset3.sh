@@ -135,6 +135,7 @@ function InstActiveScript(){
  chmod +x activebak.sh
  chmod +x activebak2.sh
  chmod +x activebak3.sh
+ chmod +x activebak4.sh
  
  # Create Checker script
  cat <<'cheker' > /root/checker.sh
