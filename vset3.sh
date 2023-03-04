@@ -191,23 +191,23 @@ fi
 # Begin Installation by Updating and Upgrading machine and then Installing all our wanted packages/services to be install.
  clear
  ScriptMessage
- sleep 10
+ #sleep 10
  InstAsk
  
  # Update and Install Needed Files
  InstUpdates
  echo -e "Updating Server..."
- sleep 2
+ #sleep 2
  
  # Create dirs
  InstCreateDir
  echo -e "Creating directories..."
- sleep 2
+ #sleep 2
  
  # Setup RTMP
  InstRset
  echo -e "Setting up rtmp module..."
- sleep 2
+ #sleep 2
  
  # Setup Nginx-config-for-livestreams-ABS-HLS-ffmpeg-transc-/main/etc/nginx/nginx
  InstNginx
@@ -218,7 +218,7 @@ fi
 
  # Some assistance and startup scripts
  ScriptMessage
- sleep 3
+ #sleep 3
  
  # info
 clear
@@ -237,6 +237,6 @@ echo "Installation Log --> /root/log-install.txt" | tee -a log-install.txt
 echo "=======================================================" | tee -a log-install.txt
 cd ~/
 
-rm -f vset3.sh
-pause 5
+rm -f /root/vset3.sh
+sleep 2
 reboot
