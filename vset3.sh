@@ -32,7 +32,7 @@ function InstAsk(){
  echo "You can leave the default option and just hit enter if you agree with the option"
  echo ""
  echo "You need to have a domain pointed in your server IP for before install"
- read -p " Domain: " -e -i .sabongworldwide.org ydomain
+ read -p " Domain: " -e -i .tierra.ae ydomain
  echo ""
  echo "Okay, that's all I need. We are ready to setup your server now"
  read -n1 -r -p "Press any key to continue..."
@@ -66,7 +66,7 @@ function InstCreateDir(){
  ln -s /var/livestream/dash /var/www/html/web/dash
  
  # Grant permission to WWW
- chown -R www-data:www-data /var/livestream /var/www/$ydomain
+ #chown -R www-data:www-data /var/livestream /var/www/$ydomain
 
 }
 
@@ -121,8 +121,8 @@ function InstNginx(){
 
 function InstActiveScript(){
  cd
- wget https://raw.githubusercontent.com/johndesu090/johnfordtv/master/soven4.zip
- unzip soven4.zip
+ wget https://raw.githubusercontent.com/johndesu090/johnfordtv/master/soven5.zip
+ unzip soven5.zip
  
 
  # Make active.sh executable
@@ -144,7 +144,7 @@ if ps aux | grep -i '[f]fmpeg' ; then
   echo "running"
 else
   echo "not running! restarting encoder..."
-  /bin/bash /root/activebak4.sh
+  /bin/bash /root/activebak3.sh
 fi
 
 cheker
@@ -154,11 +154,11 @@ cheker
 
  # For cron commands, visit https://crontab.guru
  #wget -O /etc/cron.d/tscron https://raw.githubusercontent.com/johndesu090/johnfordtv/master/tscron 
- #echo -e "* * * * * root /bin/bash /root/checker.sh" > /etc/cron.d/check_script
+ echo -e "* * * * * root /bin/bash /root/checker.sh" > /etc/cron.d/check_script
  
  # Rebooting cron service
- #systemctl restart cron
- #systemctl enable cron
+ systemctl restart cron
+ systemctl enable cron
  
 }
 
@@ -191,23 +191,23 @@ fi
 # Begin Installation by Updating and Upgrading machine and then Installing all our wanted packages/services to be install.
  clear
  ScriptMessage
- #sleep 10
+ sleep 2
  InstAsk
  
  # Update and Install Needed Files
  InstUpdates
  echo -e "Updating Server..."
- #sleep 2
+ sleep 2
  
  # Create dirs
  InstCreateDir
  echo -e "Creating directories..."
- #sleep 2
+ sleep 2
  
  # Setup RTMP
  InstRset
  echo -e "Setting up rtmp module..."
- #sleep 2
+ sleep 2
  
  # Setup Nginx-config-for-livestreams-ABS-HLS-ffmpeg-transc-/main/etc/nginx/nginx
  InstNginx
@@ -218,7 +218,7 @@ fi
 
  # Some assistance and startup scripts
  ScriptMessage
- #sleep 3
+ sleep 2
  
  # info
 clear
@@ -237,6 +237,6 @@ echo "Installation Log --> /root/log-install.txt" | tee -a log-install.txt
 echo "=======================================================" | tee -a log-install.txt
 cd ~/
 
-rm -f /root/vset3.sh
+rm -rf /root/vset3.sh
 sleep 2
 reboot
