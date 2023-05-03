@@ -32,7 +32,7 @@ function InstAsk(){
  echo "You can leave the default option and just hit enter if you agree with the option"
  echo ""
  echo "You need to have a domain pointed in your server IP for before install"
- read -p " Domain: " -e -i .streamoven.com ydomain
+ read -p " Domain: " -e -i .gamebits.live ydomain
  echo ""
  echo "Okay, that's all I need. We are ready to setup your server now"
  read -n1 -r -p "Press any key to continue..."
@@ -126,16 +126,7 @@ function InstActiveScript(){
  
 
  # Make active.sh executable
- chmod +x active.sh
- chmod +x active2.sh
- chmod +x active3.sh
- chmod +x actived.sh
- chmod +x actived2.sh
- chmod +x actived3.sh
- chmod +x activebak.sh
- chmod +x activebak2.sh
- chmod +x activebak3.sh
- chmod +x activebak4.sh
+ chmod +x *.sh
  
  # Create Checker script
  cat <<'cheker' > /root/checker.sh
@@ -150,11 +141,11 @@ fi
 cheker
 
  # Make checker script executable
- chmod +x /root/checker.sh
+ #chmod +x /root/checker.sh
 
  # For cron commands, visit https://crontab.guru
  #wget -O /etc/cron.d/tscron https://raw.githubusercontent.com/johndesu090/johnfordtv/master/tscron 
- echo -e "* * * * * root /bin/bash /root/checker.sh" > /etc/cron.d/check_script
+ #echo -e "* * * * * root /bin/bash /root/checker.sh" > /etc/cron.d/check_script
  
  # Rebooting cron service
  systemctl restart cron
