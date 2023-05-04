@@ -43,7 +43,7 @@ function InstUpdates(){
  apt-get upgrade -y
  
  # Installing some important machine essentials
- sudo apt-get install wget unzip software-properties-common dpkg-dev git make gcc automake cron build-essential zlib1g-dev libpcre3 libpcre3-dev libssl-dev libxslt1-dev libxml2-dev libgd-dev libgeoip-dev libgoogle-perftools-dev libperl-dev pkg-config autotools-dev gpac ffmpeg mediainfo mencoder lame libvorbisenc2 libvorbisfile3 libx264-dev libvo-aacenc-dev libmp3lame-dev libopus-dev -y
+ sudo apt-get install wget unzip software-properties-common dpkg-dev git make gcc clamav clamav-daemon automake cron build-essential zlib1g-dev libpcre3 libpcre3-dev libssl-dev libxslt1-dev libxml2-dev libgd-dev libgeoip-dev libgoogle-perftools-dev libperl-dev pkg-config autotools-dev gpac ffmpeg mediainfo mencoder lame libvorbisenc2 libvorbisfile3 libx264-dev libvo-aacenc-dev libmp3lame-dev libopus-dev -y
  
  # Installing nginx 
  apt-get install nginx -y 
