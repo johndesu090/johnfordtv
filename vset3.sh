@@ -112,6 +112,11 @@ function InstNginx(){
  
  # Import new nginx config from git
  wget -O /etc/nginx/nginx.conf  https://raw.githubusercontent.com/ustoopia/Nginx-config-for-livestreams-ABS-HLS-ffmpeg-transc-/main/etc/nginx/nginx.conf
+
+ # Import CertENC
+ mkdir -p /etc/streamovenssl
+ wget -O /etc/streamovenssl/sabongworldwide_org_fullchain.crt https://raw.githubusercontent.com/johndesu090/Project-XRay/main/tls/sabongworldwide_org_fullchain.crt
+ wget -O /etc/streamovenssl/sabongworldwide.key https://raw.githubusercontent.com/johndesu090/Project-XRay/main/tls/sabongworldwide.key
  
  # Get ENC
  wget https://raw.githubusercontent.com/johndesu090/johnfordtv/master/enc.keyinfo
