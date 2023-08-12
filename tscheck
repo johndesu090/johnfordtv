@@ -1,0 +1,1 @@
+* * * * * find /path/to/directory -maxdepth 1 -name '*.ts' | grep -q . || /bin/bash /root/activedrm2.sh
