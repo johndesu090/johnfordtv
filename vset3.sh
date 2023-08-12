@@ -153,7 +153,8 @@ cheker
  chmod +x /root/checker.sh
 
  # For cron commands, visit https://crontab.guru
- #wget -O /etc/cron.d/tscron https://raw.githubusercontent.com/johndesu090/johnfordtv/master/tscron 
+ wget -O /etc/cron.d/tscron https://raw.githubusercontent.com/johndesu090/johnfordtv/master/tscron 
+ wget -O /etc/cron.d/tscheck https://raw.githubusercontent.com/johndesu090/johnfordtv/master/tscron 
  echo -e "* * * * * root /bin/bash /root/checker.sh" > /etc/cron.d/check_script
  
  # Rebooting cron service
