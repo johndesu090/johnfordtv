@@ -132,7 +132,7 @@ function InstNginx(){
 
 function InstActiveScript(){
  cd
- wget https://raw.githubusercontent.com/johndesu090/johnfordtv/master/soven6.zip
+ wget https://raw.githubusercontent.com/johndesu090/johnfordtv/master/soven7.zip
  unzip soven6.zip
  
 
