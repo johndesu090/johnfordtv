@@ -32,7 +32,7 @@ function InstAsk(){
  echo "You can leave the default option and just hit enter if you agree with the option"
  echo ""
  echo "You need to have a domain pointed in your server IP for before install"
- read -p " Domain: " -e -i localhost ydomain
+ read -p " Domain: " -e -i lb01.sabongworldwide.org ydomain
  echo ""
  echo "Okay, that's all I need. We are ready to setup your server now"
  read -n1 -r -p "Press any key to continue..."
