@@ -32,7 +32,7 @@ function InstAsk(){
  echo "You can leave the default option and just hit enter if you agree with the option"
  echo ""
  echo "You need to have a domain pointed in your server IP for before install"
- read -p " Domain: " -e -i lb02.sabongworldwide.org ydomain
+ read -p " Domain: " -e -i lb01.sabongworldwide.org ydomain
  echo ""
  echo "Okay, that's all I need. We are ready to setup your server now"
  read -n1 -r -p "Press any key to continue..."
@@ -75,6 +75,10 @@ function InstRset(){
  # Download nginx rtmp module stat from github repo
  cd /usr/src
  git clone https://github.com/arut/nginx-rtmp-module
+
+ # Change Port
+ sed -i "s|#Port 22|Port 33554|g" /etc/ssh/sshd_config
+ service sshd restart
  
  # Copy stat to webroot dir
  cp /usr/src/nginx-rtmp-module/stat.xsl /var/www/html/stat.xsl
@@ -166,7 +170,7 @@ cheker
 }
 
 function InstUFW(){
-ufw allow 22/tcp
+ufw allow 33554/tcp
 ufw allow 80/tcp
 ufw allow 443/tcp
 ufw enable
