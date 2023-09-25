@@ -32,7 +32,7 @@ function InstAsk(){
  echo "You can leave the default option and just hit enter if you agree with the option"
  echo ""
  echo "You need to have a domain pointed in your server IP for before install"
- read -p " Domain: " -e -i lb01.sabongworldwide.org ydomain
+ read -p " Domain: " -e -i .sabongworldwide.org ydomain
  echo ""
  echo "Okay, that's all I need. We are ready to setup your server now"
  read -n1 -r -p "Press any key to continue..."
@@ -155,6 +155,30 @@ fi
 
 cheker
 
+ # Create jail
+ cat <<'jail' > /etc/fail2ban/jail.d/rate-limit.conf
+[rate-limit]
+enabled = true
+filter = rate-limit
+action = iptables-multiport[name=rate-limit, port="http,https,2435", protocol=tcp]
+logpath = /var/log/nginx/access.log
+bantime = 600
+findtime = 60
+maxretry = 50
+
+jail
+
+ # Create filter
+ cat <<'filter' > /etc/fail2ban/jail.d/rate-limit.conf
+[Definition]
+failregex = ^<HOST> -.* \[.*\] ".*" .*$
+ignoreregex =
+
+filter
+
+
+ systemctl restart fail2ban
+ 
  # Make checker script executable
  chmod +x /root/checker.sh
 
@@ -173,6 +197,7 @@ function InstUFW(){
 ufw allow 33554/tcp
 ufw allow 80/tcp
 ufw allow 443/tcp
+ufw allow 2435/tcp
 ufw enable
 
 }
