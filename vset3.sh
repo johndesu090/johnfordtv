@@ -156,23 +156,23 @@ fi
 cheker
 
  # Create jail
- cat <<'jail' > /etc/fail2ban/jail.d/rate-limit.conf
-[rate-limit]
+ cat <<'jail' > /etc/fail2ban/jail.d/nginx-forbidden.conf
+[nginx-forbidden]
 enabled = true
-filter = rate-limit
-action = iptables-multiport[name=rate-limit, port="http,https,2435", protocol=tcp]
+filter = nginx-forbidden
+action = ufw[name=nginx-forbidden, port="http,https", protocol=tcp]
 logpath = /var/log/nginx/access.log
-bantime = 600
+bantime = 172800
 findtime = 60
-maxretry = 50
+maxretry = 1
 
 jail
 
  # Create filter
- cat <<'filter' > /etc/fail2ban/jail.d/rate-limit.conf
+ cat <<'filter' > /etc/fail2ban/filter.d/nginx-forbidden.conf
 [Definition]
-failregex = ^<HOST> -.* \[.*\] ".*" .*$
-ignoreregex =
+failregex = ^<HOST> .* 403 .*$
+ignoreregex = 
 
 filter
 
