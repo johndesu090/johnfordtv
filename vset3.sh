@@ -32,7 +32,7 @@ function InstAsk(){
  echo "You can leave the default option and just hit enter if you agree with the option"
  echo ""
  echo "You need to have a domain pointed in your server IP for before install"
- read -p " Domain: " -e -i backup1.streamoven.com ydomain
+ read -p " Domain: " -e -i .sabongworldwide.org ydomain
  echo ""
  echo "Okay, that's all I need. We are ready to setup your server now"
  read -n1 -r -p "Press any key to continue..."
@@ -160,11 +160,11 @@ cheker
 [nginx-forbidden]
 enabled = true
 filter = nginx-forbidden
-action = ufw[name=nginx-forbidden, port="http,https", protocol=tcp]
+action = iptables-multiport[name=nginx-forbidden, port="http,https", protocol=tcp]
 logpath = /var/log/nginx/access.log
 bantime = 172800
 findtime = 60
-maxretry = 1
+maxretry = 3
 
 jail
 
@@ -198,7 +198,7 @@ ufw allow 33554/tcp
 ufw allow 80/tcp
 ufw allow 443/tcp
 ufw allow 2435/tcp
-ufw enable
+#ufw enable
 
 }
 
