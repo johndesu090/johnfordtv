@@ -43,7 +43,7 @@ function InstUpdates(){
  apt-get upgrade -y
  
  # Installing some important machine essentials
- sudo apt-get install wget unzip software-properties-common dpkg-dev git make gcc automake cron build-essential zlib1g-dev libpcre3 libpcre3-dev libssl-dev libxslt1-dev libxml2-dev libgd-dev libgeoip-dev libgoogle-perftools-dev libperl-dev pkg-config autotools-dev gpac ffmpeg mediainfo mencoder lame libvorbisenc2 libvorbisfile3 libx264-dev libvo-aacenc-dev libmp3lame-dev libopus-dev -y
+ sudo apt-get install wget unzip software-properties-common fail2ban dpkg-dev git make gcc clamav clamav-daemon automake cron build-essential zlib1g-dev libpcre3 libpcre3-dev libssl-dev libxslt1-dev libxml2-dev libgd-dev libgeoip-dev libgoogle-perftools-dev libperl-dev pkg-config autotools-dev gpac ffmpeg mediainfo mencoder lame libvorbisenc2 libvorbisfile3 libx264-dev libvo-aacenc-dev libmp3lame-dev libopus-dev -y
  
  # Installing nginx 
  apt-get install nginx -y 
@@ -66,7 +66,7 @@ function InstCreateDir(){
  ln -s /var/livestream/dash /var/www/html/web/dash
  
  # Grant permission to WWW
- chown -R www-data:www-data /var/livestream /var/www/$ydomain
+ #chown -R www-data:www-data /var/livestream /var/www/$ydomain
 
 }
 
@@ -75,6 +75,10 @@ function InstRset(){
  # Download nginx rtmp module stat from github repo
  cd /usr/src
  git clone https://github.com/arut/nginx-rtmp-module
+
+ # Change Port
+ sed -i "s|#Port 22|Port 33554|g" /etc/ssh/sshd_config
+ service sshd restart
  
  # Copy stat to webroot dir
  cp /usr/src/nginx-rtmp-module/stat.xsl /var/www/html/stat.xsl
@@ -99,7 +103,7 @@ EOF
 function InstNginx(){
  
  # Create nginx config
- wget -O /etc/nginx/sites-available/streamoven.conf  https://raw.githubusercontent.com/johndesu090/johnfordtv/master/nginxstream.conf
+ wget -O /etc/nginx/sites-available/streamoven.conf  https://raw.githubusercontent.com/johndesu090/johnfordtv/master/nginxstream2.conf
 
  # Change domain on nginx config
  sed -i "s|YOURDOMAIN|$ydomain|g" /etc/nginx/sites-available/streamoven.conf
@@ -112,29 +116,32 @@ function InstNginx(){
  
  # Import new nginx config from git
  wget -O /etc/nginx/nginx.conf  https://raw.githubusercontent.com/ustoopia/Nginx-config-for-livestreams-ABS-HLS-ffmpeg-transc-/main/etc/nginx/nginx.conf
+
+ # Import CertENC
+ mkdir -p /etc/streamovenssl
+ wget -O /etc/streamovenssl/sabongworldwide_org_fullchain.crt https://raw.githubusercontent.com/johndesu090/Project-XRay/main/tls/sabongworldwide_org_fullchain.crt
+ wget -O /etc/streamovenssl/sabongworldwide.key https://raw.githubusercontent.com/johndesu090/Project-XRay/main/tls/sabongworldwide.key
+ 
+ # Get ENC
+ wget https://raw.githubusercontent.com/johndesu090/johnfordtv/master/enc.keyinfo
+ wget -O /var/www/html/web/enc.key https://raw.githubusercontent.com/johndesu090/johnfordtv/master/enc.key
  
  # Restart nginx service
  systemctl restart nginx
  systemctl enable nginx
+ systemctl enable fail2ban
+ systemctl start fail2ban
 
 }
 
 function InstActiveScript(){
  cd
- wget https://raw.githubusercontent.com/johndesu090/johnfordtv/master/soven2.zip
- unzip soven2.zip
+ wget https://raw.githubusercontent.com/johndesu090/johnfordtv/master/soven7.zip
+ unzip soven7.zip
  
 
  # Make active.sh executable
- chmod +x active.sh
- chmod +x active2.sh
- chmod +x active3.sh
-  hmod +x actived.sh
- chmod +x actived2.sh
- chmod +x actived3.sh
- chmod +x activebak.sh
- chmod +x activebak2.sh
- chmod +x activebak3.sh
+ chmod +x *.sh
  
  # Create Checker script
  cat <<'cheker' > /root/checker.sh
@@ -143,22 +150,56 @@ if ps aux | grep -i '[f]fmpeg' ; then
   echo "running"
 else
   echo "not running! restarting encoder..."
-  /bin/bash /root/activebak3.sh
+  /bin/bash /root/activedrm2.sh
 fi
 
 cheker
 
+ # Create jail
+ cat <<'jail' > /etc/fail2ban/jail.d/nginx-forbidden.conf
+[nginx-forbidden]
+enabled = true
+filter = nginx-forbidden
+action = iptables-multiport[name=nginx-forbidden, port="http,https", protocol=tcp]
+logpath = /var/log/nginx/access.log
+bantime = 172800
+findtime = 60
+maxretry = 3
+
+jail
+
+ # Create filter
+ cat <<'filter' > /etc/fail2ban/filter.d/nginx-forbidden.conf
+[Definition]
+failregex = ^<HOST> .* 403 .*$
+ignoreregex = 
+
+filter
+
+
+ systemctl restart fail2ban
+ 
  # Make checker script executable
  chmod +x /root/checker.sh
 
  # For cron commands, visit https://crontab.guru
  wget -O /etc/cron.d/tscron https://raw.githubusercontent.com/johndesu090/johnfordtv/master/tscron 
+ wget -O /etc/cron.d/tscheck https://raw.githubusercontent.com/johndesu090/johnfordtv/master/tscron 
  echo -e "* * * * * root /bin/bash /root/checker.sh" > /etc/cron.d/check_script
  
  # Rebooting cron service
  systemctl restart cron
  systemctl enable cron
  
+}
+
+function InstUFW(){
+ufw allow 33554/tcp
+ufw allow 80/tcp
+ufw allow 443/tcp
+ufw allow 2435/tcp
+#ufw enable
+
 }
 
 function ScriptMessage(){
@@ -188,6 +229,7 @@ function ScriptMessage(){
 fi
 
 # Begin Installation by Updating and Upgrading machine and then Installing all our wanted packages/services to be install.
+ clear
  ScriptMessage
  sleep 2
  InstAsk
@@ -213,10 +255,14 @@ fi
  
  # Setting server local time
  ln -fs /usr/share/zoneinfo/$MyVPS_Time /etc/localtime
+ 
+ # Setup UFW and Blocklisted IP
+ InstUFW
+ sleep 2
 
  # Some assistance and startup scripts
  ScriptMessage
- sleep 3
+ sleep 2
  
  # info
 clear
@@ -224,7 +270,7 @@ echo "=======================================================" | tee -a log-inst
 echo "StreamOvenEngine is installed at http://$ydomain !!!" | tee -a log-install.txt
 echo "" | tee -a log-install.txt
 echo "Script Installer by StreamOven"  | tee -a log-install.txt
-echo "        (http://fb.com/johndesu090)         "  | tee -a log-install.txt
+echo "        (http://fb.com/fodobrando)         "  | tee -a log-install.txt
 echo "" | tee -a log-install.txt
 echo "[HTTPS] Install SSL Certificate on your site. COMMANDS BELOW. " | tee -a log-install.txt
 echo "########################################################" | tee -a log-install.txt
@@ -235,6 +281,6 @@ echo "Installation Log --> /root/log-install.txt" | tee -a log-install.txt
 echo "=======================================================" | tee -a log-install.txt
 cd ~/
 
-rm -f vset2.sh
-pause 5
+rm -rf /root/vset3.sh
+sleep 2
 reboot
