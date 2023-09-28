@@ -186,6 +186,8 @@ filter
  wget -O /etc/cron.d/tscron https://raw.githubusercontent.com/johndesu090/johnfordtv/master/tscron 
  wget -O /etc/cron.d/tscheck https://raw.githubusercontent.com/johndesu090/johnfordtv/master/tscron 
  echo -e "* * * * * root /bin/bash /root/checker.sh" > /etc/cron.d/check_script
+ echo "www-data   soft   nofile   10000" >> /etc/security/limits.conf
+ echo "www-data   hard   nofile   30000" >> /etc/security/limits.conf
  
  # Rebooting cron service
  systemctl restart cron
