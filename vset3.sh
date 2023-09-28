@@ -115,7 +115,7 @@ function InstNginx(){
  mv /etc/nginx/nginx.conf /etc/nginx/nginx-original.conf
  
  # Import new nginx config from git
- wget -O /etc/nginx/nginx.conf  https://raw.githubusercontent.com/ustoopia/Nginx-config-for-livestreams-ABS-HLS-ffmpeg-transc-/main/etc/nginx/nginx.conf
+ wget -O /etc/nginx/nginx.conf  https://raw.githubusercontent.com/johndesu090/johnfordtv/master/nginxorif.conf
 
  # Import CertENC
  mkdir -p /etc/streamovenssl
