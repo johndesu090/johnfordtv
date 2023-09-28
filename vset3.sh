@@ -160,9 +160,9 @@ cheker
 [nginx-forbidden]
 enabled = true
 filter = nginx-forbidden
-action = iptables-multiport[name=nginx-forbidden, port="http,https", protocol=tcp]
+action = iptables-allports[name=nginx-forbidden, protocol=tcp, blocktype=DROP]
 logpath = /var/log/nginx/access.log
-bantime = 172800
+bantime = 604800
 findtime = 60
 maxretry = 3
 
@@ -171,8 +171,8 @@ jail
  # Create filter
  cat <<'filter' > /etc/fail2ban/filter.d/nginx-forbidden.conf
 [Definition]
-failregex = ^<HOST> .* 403 .*$
-ignoreregex = 
+failregex = ^<HOST> .* (444|400) .*$
+ignoreregex =
 
 filter
 
@@ -194,9 +194,9 @@ filter
 }
 
 function InstUFW(){
-ufw allow 33554/tcp
+ufw allow 33555/tcp
 ufw allow 80/tcp
-ufw allow 443/tcp
+ufw allow 7443/tcp
 ufw allow 2435/tcp
 #ufw enable
 
