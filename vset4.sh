@@ -102,7 +102,7 @@ EOF
 function InstNginx(){
  
  # Create nginx config
- wget -O /etc/nginx/sites-available/streamoven.conf  https://raw.githubusercontent.com/johndesu090/johnfordtv/master/nginxstream.conf
+ wget -O /etc/nginx/sites-available/streamoven.conf  https://raw.githubusercontent.com/johndesu090/johnfordtv/master/nginxstream3.conf
 
  # Change domain on nginx config
  sed -i "s|YOURDOMAIN|$ydomain|g" /etc/nginx/sites-available/streamoven.conf
