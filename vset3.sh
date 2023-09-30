@@ -77,7 +77,7 @@ function InstRset(){
  git clone https://github.com/arut/nginx-rtmp-module
 
  # Change Port
- sed -i "s|#Port 22|Port 33555|g" /etc/ssh/sshd_config
+ sed -i "s|#Port 22|Port 65533|g" /etc/ssh/sshd_config
  service sshd restart
  
  # Copy stat to webroot dir
@@ -156,25 +156,25 @@ fi
 cheker
 
  # Create jail
- cat <<'jail' > /etc/fail2ban/jail.d/nginx-forbidden.conf
-[nginx-forbidden]
-enabled = true
-filter = nginx-forbidden
-action = iptables-allports[name=nginx-forbidden, protocol=tcp, blocktype=DROP]
-logpath = /var/log/nginx/access.log
-bantime = 604800
-findtime = 60
-maxretry = 3
-
-jail
+# cat <<'jail' > /etc/fail2ban/jail.d/nginx-forbidden.conf
+#[nginx-forbidden]
+#enabled = true
+#filter = nginx-forbidden
+#action = iptables-allports[name=nginx-forbidden, protocol=tcp, blocktype=DROP]
+#logpath = /var/log/nginx/access.log
+#bantime = 604800
+#findtime = 60
+#maxretry = 3
+#
+#jail
 
  # Create filter
- cat <<'filter' > /etc/fail2ban/filter.d/nginx-forbidden.conf
-[Definition]
-failregex = ^<HOST> .* (444|400) .*$
-ignoreregex =
-
-filter
+# cat <<'filter' > /etc/fail2ban/filter.d/nginx-forbidden.conf
+#[Definition]
+#failregex = ^<HOST> .* (444|400) .*$
+#ignoreregex =
+#
+#filter
 
 
  systemctl restart fail2ban
