@@ -60,7 +60,7 @@ function InstCreateDir(){
  
  # Making some important machine directories
  mkdir -p /var/www/html/web/cdnlive-33554180976
- mkdir -p /var/www/html/web/hackfight
+ mkdir -p /var/www/html/web/cdnlive
  mkdir -p /var/livestream/hls /var/livestream/dash /var/livestream/recordings /var/livestream/keys
  ln -s /var/livestream/hls /var/www/html/web/hls
  ln -s /var/livestream/dash /var/www/html/web/dash
