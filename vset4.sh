@@ -118,7 +118,7 @@ function InstNginx(){
 
  # Import CertENC
  mkdir -p /etc/streamovenssl
- wget -O /etc/streamovenssl/encginecdn_cert.pem https://raw.githubusercontent.com/johndesu090/Project-XRay/main/tls/encginecdn_cert.pem
+ wget -O /etc/streamovenssl/enginecdn_cert.pem https://raw.githubusercontent.com/johndesu090/Project-XRay/main/tls/enginecdn_chain.pem
  wget -O /etc/streamovenssl/enginecdn_key.pem https://raw.githubusercontent.com/johndesu090/Project-XRay/main/tls/enginecdn_key.pem
  
  # Get ENC
