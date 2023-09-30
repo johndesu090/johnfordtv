@@ -282,6 +282,6 @@ echo "Installation Log --> /root/log-install.txt" | tee -a log-install.txt
 echo "=======================================================" | tee -a log-install.txt
 cd ~/
 
-rm -rf /root/vset3.sh
+rm -rf /root/vset*
 sleep 2
 reboot
