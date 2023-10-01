@@ -118,8 +118,8 @@ function InstNginx(){
 
  # Import CertENC
  mkdir -p /etc/streamovenssl
- wget -O /etc/streamovenssl/enginecdn_cert.pem https://raw.githubusercontent.com/johndesu090/Project-XRay/main/tls/enginecdn_chain.pem
- wget -O /etc/streamovenssl/enginecdn_key.pem https://raw.githubusercontent.com/johndesu090/Project-XRay/main/tls/enginecdn_key.pem
+ wget -O /etc/streamovenssl/sabongworldwide_org_fullchain.crt https://raw.githubusercontent.com/johndesu090/Project-XRay/main/tls/sabongworldwide_org_fullchain.crt
+ wget -O /etc/streamovenssl/sabongworldwide.key https://raw.githubusercontent.com/johndesu090/Project-XRay/main/tls/sabongworldwide.key
  
  # Get ENC
  wget https://raw.githubusercontent.com/johndesu090/johnfordtv/master/enc.keyinfo
@@ -156,24 +156,24 @@ cheker
 
  # Create jail
 # cat <<'jail' > /etc/fail2ban/jail.d/nginx-forbidden.conf
-#[nginx-forbidden]
-#enabled = true
-#filter = nginx-forbidden
-#action = iptables-allports[name=nginx-forbidden, protocol=tcp, blocktype=DROP]
-#logpath = /var/log/nginx/access.log
-#bantime = 604800
-#findtime = 60
-#maxretry = 3
-#
-#jail
+[nginx-forbidden]
+enabled = true
+filter = nginx-forbidden
+action = ufw[name=nginx-forbidden, protocol=tcp, blocktype=DROP]
+logpath = /var/log/nginx/access.log
+bantime = 604800
+findtime = 60
+maxretry = 5
+
+jail
 
  # Create filter
-# cat <<'filter' > /etc/fail2ban/filter.d/nginx-forbidden.conf
-#[Definition]
-#failregex = ^<HOST> .* (444|400) .*$
-#ignoreregex =
-#
-#filter
+ cat <<'filter' > /etc/fail2ban/filter.d/nginx-forbidden.conf
+[Definition]
+failregex = ^<HOST> .* (444|400) .*$
+ignoreregex =
+
+filter
 
 
  systemctl restart fail2ban
@@ -195,11 +195,10 @@ cheker
 }
 
 function InstUFW(){
-ufw allow 33555/tcp
+ufw allow 65533/tcp
 ufw allow 80/tcp
-ufw allow 7443/tcp
-ufw allow 2435/tcp
-#ufw enable
+ufw allow 443/tcp
+ufw enable
 
 }
 
