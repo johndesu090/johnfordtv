@@ -163,7 +163,7 @@ action = ufw[name=nginx-forbidden, protocol=tcp, blocktype=DROP]
 logpath = /var/log/nginx/access.log
 bantime = 604800
 findtime = 60
-maxretry = 5
+maxretry = 2
 
 jail
 
