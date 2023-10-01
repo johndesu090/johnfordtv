@@ -155,7 +155,7 @@ fi
 cheker
 
  # Create jail
-# cat <<'jail' > /etc/fail2ban/jail.d/nginx-forbidden.conf
+ cat <<'jail' > /etc/fail2ban/jail.d/nginx-forbidden.conf
 [nginx-forbidden]
 enabled = true
 filter = nginx-forbidden
