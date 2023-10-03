@@ -180,7 +180,7 @@ cheker2
 [nginx-forbidden]
 enabled = true
 filter = nginx-forbidden
-action = ufw[name=nginx-forbidden, protocol=tcp, blocktype=DROP]
+action = ufw[name=nginx-forbidden, protocol=tcp, port"http,https"]
 logpath = /var/log/nginx/access.log
 bantime = 604800
 findtime = 60
