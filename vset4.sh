@@ -182,7 +182,7 @@ enabled = true
 filter = nginx-forbidden
 action = ufw[name=nginx-forbidden, protocol=tcp, port"http,https"]
 logpath = /var/log/nginx/access.log
-bantime = 604800
+bantime = -1
 findtime = 60
 maxretry = 2
 
