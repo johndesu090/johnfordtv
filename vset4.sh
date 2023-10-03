@@ -4588,7 +4588,7 @@ ipset add blocked_ips 1.180.49.222
 ipset add blocked_ips 1.179.130.201 
 
  sleep 2
- iptables -A INPUT -m set --match-set blocked_ips src -j DROP
+ iptables -I INPUT 1 -m set --match-set blocked_ips src -j DROP
  iptables-save
 
  
