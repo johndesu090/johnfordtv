@@ -4588,9 +4588,9 @@ ipset add blocked_ips 101.51.121.141
 ipset add blocked_ips 1.180.49.222 
 ipset add blocked_ips 1.179.130.201 
 
- sbin/iptables -t mangle -D PREROUTING -p tcp --tcp-flags FIN,SYN,RST,PSH,ACK,URG NONE -j DROP 
- sbin/iptables -t mangle -D PREROUTING -p tcp --tcp-flags FIN,SYN FIN,SYN -j DROP 
- sbin/iptables -t mangle -D PREROUTING -p tcp --tcp-flags SYN,RST SYN,RST -j DROP 
+ iptables -t mangle -D PREROUTING -p tcp --tcp-flags FIN,SYN,RST,PSH,ACK,URG NONE -j DROP 
+ iptables -t mangle -D PREROUTING -p tcp --tcp-flags FIN,SYN FIN,SYN -j DROP 
+ iptables -t mangle -D PREROUTING -p tcp --tcp-flags SYN,RST SYN,RST -j DROP 
  iptables -t mangle -D PREROUTING -p tcp --tcp-flags FIN,RST FIN,RST -j DROP 
  iptables -t mangle -D PREROUTING -p tcp --tcp-flags FIN,ACK FIN -j DROP 
  iptables -t mangle -D PREROUTING -p tcp --tcp-flags ACK,URG URG -j DROP 
