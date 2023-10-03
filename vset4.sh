@@ -200,6 +200,7 @@ filter
  systemctl restart fail2ban
 
  # Add Blacklist on IPset
+ipset create blocked_ips hash:ip
 ipset add blocked_ips 158.62.9.147
 ipset add blocked_ips 82.145.222.200 
 ipset add blocked_ips 185.142.236.43 
