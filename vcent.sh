@@ -43,6 +43,8 @@ function InstUpdates(){
  # Installing some important machine essentials
  yum -y install wget unzip epel-release fail2ban ffmpeg mediainfo mencoder lame gcc-c++ automake make git openssl-devel zlib-devel pcre pcre-devel libxslt-devel libxml2-devel gd-devel GeoIP-devel gperftools-devel perl-ExtUtils-Embed ipset
 
+ yum -y install nginx
+
  # Installing iptables and iptables-services
  yum -y install iptables iptables-services
 
