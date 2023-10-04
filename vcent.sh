@@ -41,20 +41,19 @@ function InstUpdates(){
  yum -y update
  
  # Installing some important machine essentials
- yum -y install wget unzip epel-release fail2ban ffmpeg mediainfo mencoder lame gcc-c++ automake make git openssl-devel zlib-devel pcre pcre-devel libxslt-devel libxml2-devel gd-devel GeoIP-devel gperftools-devel perl-ExtUtils-Embed ipset
+ yum -y install wget unzip epel-release mediainfo mencoder lame gcc-c++ automake make git openssl-devel zlib-devel pcre pcre-devel libxslt-devel libxml2-devel gd-devel GeoIP-devel gperftools-devel perl-ExtUtils-Embed ipset
 
  yum -y install nginx
+ yum -y localinstall --nogpgcheck https://download1.rpmfusion.org/free/el/rpmfusion-free-release-7.noarch.rpm
+ yum -y install ffmpeg ffmpeg-devel
+ yum -y install fail2ban fail2ban-systemd
 
  # Installing iptables and iptables-services
  yum -y install iptables iptables-services
 
- # Enabling and starting iptables
- systemctl enable iptables
- systemctl start iptables
-
  # Configure iptables rules (customize as needed)
  # Allow SSH (port 65533)
- iptables -A INPUT -p tcp --dport 65533 -j ACCEPT
+ iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 33554 -j ACCEPT
 
  # Allow HTTP (port 80,443)
  iptables -A INPUT -p tcp --dport 80 -j ACCEPT
@@ -64,6 +63,8 @@ function InstUpdates(){
  iptables -A INPUT -j DROP
 
  # Save the rules
+ systemctl enable iptables
+ systemctl start iptables
  service iptables save
 }
 
@@ -84,7 +85,7 @@ function InstRset(){
  git clone https://github.com/arut/nginx-rtmp-module
 
  # Change SSH Port
- sed -i "s|#Port 22|Port 65533|g" /etc/ssh/sshd_config
+ sed -i "s|#Port 22|Port 33554|g" /etc/ssh/sshd_config
  systemctl restart sshd
 
  # Copy stat to webroot dir
