@@ -4593,6 +4593,10 @@ ipset add blocked_ips 1.179.130.201
  chmod +x /root/checker.sh
  chmod +x /root/checker2.sh
 
+ # Optimize Kernel
+ wget -O /etc/sysctl.conf https://raw.githubusercontent.com/johndesu090/johnfordtv/master/sysctl.conf
+ sysctl -p
+
  # For cron commands, visit https://crontab.guru
  wget -O /etc/cron.d/tscron https://raw.githubusercontent.com/johndesu090/johnfordtv/master/tscron 
  wget -O /etc/cron.d/tscheck https://raw.githubusercontent.com/johndesu090/johnfordtv/master/tscron 
