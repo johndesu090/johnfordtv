@@ -152,7 +152,7 @@ else
   /bin/bash /root/activedrm2.sh
 fi
 
-#cheker
+cheker
 
 # Create Checker2 script
 cat <<'cheker2' > /root/checker2.sh
