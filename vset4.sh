@@ -184,7 +184,7 @@ action = ufw[name=nginx-forbidden, port="http,https", protocol=tcp]
 logpath = /var/log/nginx/access.log
 bantime = -1
 findtime = 60
-maxretry = 2
+maxretry = 5
 
 jail
 
