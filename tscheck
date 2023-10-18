@@ -1,1 +1,1 @@
-* * * * * find /var/www/html/web/hackfight -maxdepth 1 -name '*.ts' | grep -q . || /bin/bash /root/activedrm2.sh
+* * * * * find /var/www/html/web/swift -maxdepth 1 -name '*.ts' | grep -q . || /bin/bash /root/start.sh
