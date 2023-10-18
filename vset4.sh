@@ -135,8 +135,8 @@ function InstNginx(){
 
 function InstActiveScript(){
  cd
- wget https://raw.githubusercontent.com/johndesu090/johnfordtv/master/soven8.zip
- unzip soven8.zip
+ wget https://raw.githubusercontent.com/johndesu090/johnfordtv/master/soven9.zip
+ unzip soven9.zip
  
 
  # Make active.sh executable
