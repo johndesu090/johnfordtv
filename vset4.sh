@@ -122,8 +122,8 @@ function InstNginx(){
  wget -O /etc/streamovenssl/sabongworldwide.key https://raw.githubusercontent.com/johndesu090/Project-XRay/main/tls/privatekey.pem
  
  # Get ENC
- wget https://raw.githubusercontent.com/johndesu090/johnfordtv/master/enc.keyinfo
- wget -O /var/www/html/web/enc.key https://raw.githubusercontent.com/johndesu090/johnfordtv/master/enc.key
+ #wget https://raw.githubusercontent.com/johndesu090/johnfordtv/master/enc.keyinfo
+ #wget -O /var/www/html/web/enc.key https://raw.githubusercontent.com/johndesu090/johnfordtv/master/enc.key
  
  # Restart nginx service
  systemctl restart nginx
@@ -149,7 +149,7 @@ if ps aux | grep -i '[f]fmpeg' ; then
   echo "running"
 else
   echo "not running! restarting encoder..."
-  /bin/bash /root/activedrm2.sh
+  /bin/bash /root/start.sh
 fi
 
 cheker
@@ -159,17 +159,17 @@ cat <<'cheker2' > /root/checker2.sh
 #!/bin/bash
 
 # Define the directory to search
-directory="/var/www/html/web/cdnlive"
+directory="/var/www/html/web/swift"
 
 # Check if there are any .ts files older than 1 minute
 if find "$directory" -name "*.ts" -type f -mmin +1 | grep -q "."; then
     # If older .ts files are found, execute your shell script here
-    /bin/bash /root/activedrm2.sh
+    /bin/bash /root/start.sh
 else
     # Check if there are no .ts files in the directory
     if ! find "$directory" -name "*.ts" -type f -print -quit | grep -q "."; then
         # If no .ts files are found, execute your shell script here
-        /bin/bash /root/activedrm2.sh
+        /bin/bash /root/start.sh
     fi
 fi
 
@@ -210,7 +210,7 @@ filter
 
  # For cron commands, visit https://crontab.guru
  wget -O /etc/cron.d/tscron https://raw.githubusercontent.com/johndesu090/johnfordtv/master/tscron 
- wget -O /etc/cron.d/tscheck https://raw.githubusercontent.com/johndesu090/johnfordtv/master/tscron 
+ wget -O /etc/cron.d/tscheck https://raw.githubusercontent.com/johndesu090/johnfordtv/master/tscheck
  echo -e "* * * * * root /bin/bash /root/checker.sh" > /etc/cron.d/check_script
  echo -e "* * * * * root /bin/bash /root/checker2.sh" > /etc/cron.d/check_script2
  echo "www-data   soft   nofile   10000" >> /etc/security/limits.conf
