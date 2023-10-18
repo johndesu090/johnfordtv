@@ -1,1 +1,1 @@
-* * * * * root /usr/bin/find /var/www/html/web/hackfight -name "*.ts" -type f -mmin +2 -exec rm -f {} \;
+* * * * * root /usr/bin/find /var/www/html/web/swift -name "*.ts" -type f -mmin +2 -exec rm -f {} \;
