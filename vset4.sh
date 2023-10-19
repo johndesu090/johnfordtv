@@ -76,8 +76,8 @@ function InstRset(){
  git clone https://github.com/arut/nginx-rtmp-module
 
  # Change Port
- sed -i "s|#Port 22|Port 65533|g" /etc/ssh/sshd_config
- service sshd restart
+ #sed -i "s|#Port 22|Port 65533|g" /etc/ssh/sshd_config
+ #service sshd restart
  
  # Copy stat to webroot dir
  cp /usr/src/nginx-rtmp-module/stat.xsl /var/www/html/stat.xsl
