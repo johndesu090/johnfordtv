@@ -32,7 +32,7 @@ function InstAsk(){
  echo "You can leave the default option and just hit enter if you agree with the option"
  echo ""
  echo "You need to have a domain pointed in your server IP for before install"
- read -p " Domain: " -e -i .luadipa.com ydomain
+ read -p " Domain: " -e -i .tangolinaction.com ydomain
  echo ""
  echo "Okay, that's all I need. We are ready to setup your server now"
  read -n1 -r -p "Press any key to continue..."
@@ -118,8 +118,8 @@ function InstNginx(){
 
  # Import CertENC
  mkdir -p /etc/streamovenssl
- wget -O /etc/streamovenssl/sabongworldwide_org_fullchain.crt https://raw.githubusercontent.com/johndesu090/Project-XRay/main/tls/fullchain.pem
- wget -O /etc/streamovenssl/sabongworldwide.key https://raw.githubusercontent.com/johndesu090/Project-XRay/main/tls/privatekey.pem
+ wget -O /etc/streamovenssl/sabongworldwide_org_fullchain.crt https://raw.githubusercontent.com/johndesu090/Project-XRay/main/tls/STAR_tangolfullchain.pem
+ wget -O /etc/streamovenssl/sabongworldwide.key https://raw.githubusercontent.com/johndesu090/Project-XRay/main/tls/tangolprivkey.pem
  
  # Get ENC
  wget https://raw.githubusercontent.com/johndesu090/johnfordtv/master/enc.keyinfo
