@@ -188,6 +188,7 @@ filter
 
  # For cron commands, visit https://crontab.guru
  wget -O /etc/cron.d/tscron https://raw.githubusercontent.com/johndesu090/johnfordtv/master/tscron 
+ echo -O /etc/cron.d/m3ucheck https://raw.githubusercontent.com/johndesu090/johnfordtv/master/tscheck
  echo -e "* * * * * root /bin/bash /root/checker.sh" > /etc/cron.d/check_script
  echo "www-data   soft   nofile   10000" >> /etc/security/limits.conf
  echo "www-data   hard   nofile   30000" >> /etc/security/limits.conf
