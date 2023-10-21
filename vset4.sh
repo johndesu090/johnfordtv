@@ -154,27 +154,6 @@ fi
 
 cheker
 
-# Create Checker2 script
-cat <<'cheker2' > /root/checker2.sh
-#!/bin/bash
-
-# Define the directory to search
-directory="/var/www/html/web/swift"
-
-# Check if there are any .ts files older than 1 minute
-if find "$directory" -name "*.ts" -type f -mmin +1 | grep -q "."; then
-    # If older .ts files are found, execute your shell script here
-    /bin/bash /root/start.sh
-else
-    # Check if there are no .ts files in the directory
-    if ! find "$directory" -name "*.ts" -type f -print -quit | grep -q "."; then
-        # If no .ts files are found, execute your shell script here
-        /bin/bash /root/start.sh
-    fi
-fi
-
-cheker2
-
  # Create jail
  cat <<'jail' > /etc/fail2ban/jail.d/nginx-forbidden.conf
 [nginx-forbidden]
@@ -202,7 +181,6 @@ filter
  
  # Make checker script executable
  chmod +x /root/checker.sh
- chmod +x /root/checker2.sh
 
  # Optimize Kernel
  wget -O /etc/sysctl.conf https://raw.githubusercontent.com/johndesu090/johnfordtv/master/sysctl.conf
@@ -210,9 +188,7 @@ filter
 
  # For cron commands, visit https://crontab.guru
  wget -O /etc/cron.d/tscron https://raw.githubusercontent.com/johndesu090/johnfordtv/master/tscron 
- wget -O /etc/cron.d/tscheck https://raw.githubusercontent.com/johndesu090/johnfordtv/master/tscheck
  echo -e "* * * * * root /bin/bash /root/checker.sh" > /etc/cron.d/check_script
- echo -e "* * * * * root /bin/bash /root/checker2.sh" > /etc/cron.d/check_script2
  echo "www-data   soft   nofile   10000" >> /etc/security/limits.conf
  echo "www-data   hard   nofile   30000" >> /etc/security/limits.conf
  
@@ -281,7 +257,7 @@ fi
  InstActiveScript
  
  # Setting server local time
- ln -fs /usr/share/zoneinfo/$MyVPS_Time /etc/localtime
+ ln -fs /usr/share/zoneinfo/$MyVPS_Time /etc/timezone
  
  # Setup UFW and Blocklisted IP
  InstUFW
