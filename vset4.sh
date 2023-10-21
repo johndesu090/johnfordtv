@@ -257,7 +257,8 @@ fi
  InstActiveScript
  
  # Setting server local time
- ln -fs /usr/share/zoneinfo/$MyVPS_Time /etc/timezone
+ #ln -fs /usr/share/zoneinfo/$MyVPS_Time /etc/timezone
+ timedatectl set-timezone "$MyVPS_Time" 
  
  # Setup UFW and Blocklisted IP
  InstUFW
