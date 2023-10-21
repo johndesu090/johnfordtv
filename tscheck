@@ -1,1 +1,1 @@
-* * * * * find /var/www/html/web/swift -maxdepth 1 -name '*.ts' | grep -q . || /bin/bash /root/start.sh
+* * * * * root /bin/bash -c 'if [ ! -f /var/www/html/web/swift/*.ts ] && [ ! -f /var/www/html/web/swift/*.m3u8 ]; then /root/start.sh; fi'
