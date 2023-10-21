@@ -32,7 +32,7 @@ function InstAsk(){
  echo "You can leave the default option and just hit enter if you agree with the option"
  echo ""
  echo "You need to have a domain pointed in your server IP for before install"
- read -p " Domain: " -e -i firewall.luadipa.com ydomain
+ read -p " Domain: " -e -i .luadipa.com ydomain
  echo ""
  echo "Okay, that's all I need. We are ready to setup your server now"
  read -n1 -r -p "Press any key to continue..."
@@ -43,7 +43,7 @@ function InstUpdates(){
  apt-get upgrade -y
  
  # Installing some important machine essentials
- sudo apt-get install wget unzip software-properties-common fail2ban dpkg-dev git make gcc clamav clamav-daemon ipset automake cron build-essential zlib1g-dev libpcre3 libpcre3-dev libssl-dev libxslt1-dev libxml2-dev libgd-dev libgeoip-dev libgoogle-perftools-dev libperl-dev pkg-config autotools-dev gpac ffmpeg mediainfo mencoder lame libvorbisenc2 libvorbisfile3 libx264-dev libvo-aacenc-dev libmp3lame-dev libopus-dev -y
+ sudo apt-get install wget unzip software-properties-common fail2ban dpkg-dev git make gcc clamav clamav-daemon ipset automake cron build-essential zlib1g-dev libpcre3 libpcre3-dev libssl-dev libxslt1-dev libxml2-dev libgd-dev libgeoip-dev nload htop speedtest-cli libgoogle-perftools-dev libperl-dev pkg-config autotools-dev gpac ffmpeg mediainfo mencoder lame libvorbisenc2 libvorbisfile3 libx264-dev libvo-aacenc-dev libmp3lame-dev libopus-dev -y
  
  # Installing nginx 
  apt-get install nginx -y 
