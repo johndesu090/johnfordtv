@@ -155,25 +155,25 @@ fi
 cheker
 
  # Create jail
- cat <<'jail' > /etc/fail2ban/jail.d/nginx-forbidden.conf
-[nginx-forbidden]
-enabled = true
-filter = nginx-forbidden
-action = ufw[name=nginx-forbidden, port="http,https", protocol=tcp]
-logpath = /var/log/nginx/access.log
-bantime = -1
-findtime = 60
-maxretry = 5
+ #cat <<'jail' > /etc/fail2ban/jail.d/nginx-forbidden.conf
+#[nginx-forbidden]
+#enabled = true
+#filter = nginx-forbidden
+#action = ufw[name=nginx-forbidden, port="http,https", protocol=tcp]
+#logpath = /var/log/nginx/access.log
+#bantime = -1
+#findtime = 60
+#maxretry = 5
 
-jail
+#jail
 
  # Create filter
- cat <<'filter' > /etc/fail2ban/filter.d/nginx-forbidden.conf
-[Definition]
-failregex = ^<HOST> .* (444|400) .*$
-ignoreregex =
+# cat <<'filter' > /etc/fail2ban/filter.d/nginx-forbidden.conf
+#[Definition]
+#failregex = ^<HOST> .* (444|400) .*$
+#ignoreregex =
 
-filter
+#filter
 
 
  systemctl restart fail2ban
