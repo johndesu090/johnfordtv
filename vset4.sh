@@ -191,7 +191,7 @@ cheker
  echo -O /etc/cron.d/m3ucheck https://raw.githubusercontent.com/johndesu090/johnfordtv/master/tscheck
  echo -e "* * * * * root /bin/bash /root/checker.sh" > /etc/cron.d/check_script
  echo -e "0 22 * * * root /bin/rm -rf /var/log/*" > /etc/cron.d/rmlogs
- echo -e "2 22 * * * root /sbin/reboot" > /etc/cron.d/logreboot
+ #echo -e "2 22 * * * root /sbin/reboot" > /etc/cron.d/logreboot
  echo "www-data   soft   nofile   10000" >> /etc/security/limits.conf
  echo "www-data   hard   nofile   30000" >> /etc/security/limits.conf
  
