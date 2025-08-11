@@ -6,7 +6,7 @@
 #############################
 # Variables (Can be changed depends on your prefer/home/panel/html values)
 # Script name
-MyScriptName='StreamOven Engine'
+MyScriptName='ZK'
 # My VPS IP
 MYIP=$(wget -qO- ipv4.icanhazip.com);
 # Server local time
@@ -32,7 +32,7 @@ function InstAsk(){
  echo "You can leave the default option and just hit enter if you agree with the option"
  echo ""
  echo "You need to have a domain pointed in your server IP for before install"
- read -p " Domain: " -e -i .tangolinaction.com ydomain
+ read -p " Domain: " -e -i sv14 ydomain
  echo ""
  echo "Okay, that's all I need. We are ready to setup your server now"
  read -n1 -r -p "Press any key to continue..."
@@ -59,7 +59,6 @@ function InstUpdates(){
 function InstCreateDir(){
  
  # Making some important machine directories
- mkdir -p /var/www/html/web/cdnlive
  mkdir -p /var/livestream/hls /var/livestream/dash /var/livestream/recordings /var/livestream/keys
  ln -s /var/livestream/hls /var/www/html/web/hls
  ln -s /var/livestream/dash /var/www/html/web/dash
